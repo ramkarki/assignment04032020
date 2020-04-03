@@ -1,0 +1,3 @@
+We are using executemany for batch insert so the query will still run fast even if the number of rows = 1,000,000. 
+However we have other options where we can use S3. For this we can generate csv file from source table using python script. 
+The new csv file will have correct mapping and then we will upload csv file to S3 and used copy command for batch insert.
