@@ -1,0 +1,11 @@
+--5.	Write SQL to list Top 10 Customers in the Year 2018 based on the sales
+
+Select CUSTOMER_ID,CUSTOMER_NAME,TOTAL_ORDER_AMT
+FROM ( Select CUSTOMER_ID, CUSTOMER_NAME, TOTAL_ORDER_AMT,
+Dense_rank () over ( Order by TOTAL_ORDER_AMT) as RNK
+( Select C.CUSTOMER_ID, C.CUSTOMER_NAME, Sum (ORDER_AMT) as TOTAL_ORDER_AMT
+From CUSTOMER C
+Join ORDERS O
+On C.CUST_ID = O.CUST_ID
+Where TO_CHAR ( O.SALES_DATE, 'YYYY') = '2018'
+Group by C.CUSTOMER_ID, C.CUSTOMER_NAME) )  Where RNK <=10
