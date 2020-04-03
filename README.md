@@ -13,4 +13,4 @@
     
     To execute this code please run the below command:
     python assignment7.py
-    (note: I'd put *** for username and password so you need to update those string)
+    (note: I'd put *** for all connection strings - endpoints, username, password so you need to update those string)
