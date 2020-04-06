@@ -1,7 +1,7 @@
 --4.	Write SQL to list Top 10 Salesman in the Year 2018 based on the sales
 
 SELECT SALESMAN_ID, SALESMAN_NAME, TOTAL_AMT FROM 
-  	(Select SALESMAN_ID, SALESMAN_NAME , TOTAL_AMT
+  	(Select SALESMAN_ID, SALESMAN_NAME , TOTAL_AMT,
     		Dense_rank () over ( Order by TOTAL_AMT Desc) RNK
     		(Select S.SALESMAN_ID, S.SALESMAN_NAME, 
                 	Sum (O.ORDER_AMT) AS TOTAL_AMT
